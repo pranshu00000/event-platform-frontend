@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const { data } = await axios.get('/api/auth/check', { withCredentials: true });
+        const { data } = await axios.get('https://event-platform-backend.onrender.com/api/auth/check', { withCredentials: true });
         setUser(data);
       } catch (error) {
         setUser(null);
@@ -23,24 +23,24 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (credentials) => {
-    const { data } = await axios.post('/api/auth/login', credentials, { withCredentials: true });
+    const { data } = await axios.post('https://event-platform-backend.onrender.com/api/auth/login', credentials, { withCredentials: true });
     setUser(data);
   };
 
   const register = async (userData) => {
-    const { data } = await axios.post('/api/auth/register', userData, { withCredentials: true });
+    const { data } = await axios.post('https://event-platform-backend.onrender.com/api/auth/register', userData, { withCredentials: true });
     setUser(data);
   };
 
   const guestLogin = async () => {
-    const { data } = await axios.post('/api/auth/guest', {}, { withCredentials: true });
+    const { data } = await axios.post('https://event-platform-backend.onrender.com/api/auth/guest', {}, { withCredentials: true });
     setUser(data);
   };
 
  
 const logout = async () => {
   try {
-    await axios.post('/api/auth/logout', {}, { 
+    await axios.post('https://event-platform-backend.onrender.com/api/auth/logout', {}, { 
       withCredentials: true 
     });
     setUser(null); // Clear user state

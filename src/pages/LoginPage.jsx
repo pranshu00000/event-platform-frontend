@@ -27,7 +27,7 @@ export default function LoginPage() {
 
   const handleGuestLogin = async () => {
     try {
-      await axios.post('/api/auth/guest', {}, { withCredentials: true });
+      await axios.post('https://event-platform-backend.onrender.com/api/auth/guest', {}, { withCredentials: true });
       navigate('/');
     } catch (err) {
       setError('Guest login failed');

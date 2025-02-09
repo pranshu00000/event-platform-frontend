@@ -18,7 +18,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const { data } = await axios.get('/api/events', {
+        const { data } = await axios.get('https://event-platform-backend.onrender.com/api/events', {
           params: { category: selectedCategory, upcoming: showUpcoming }
         });
         setEvents(data);
@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   const handleJoinEvent = async (eventId) => {
     try {
-      await axios.post(`/api/events/${eventId}/join`, {}, { 
+      await axios.post(`https://event-platform-backend.onrender.com/api/events/${eventId}/join`, {}, { 
         withCredentials: true 
       });
       setEvents(events.map(event => 

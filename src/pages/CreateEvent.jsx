@@ -21,7 +21,7 @@ export default function CreateEvent() {
       formData.append('location', data.location);
       formData.append('maxAttendees', data.maxAttendees);
 
-      await axios.post('/api/events', formData, {
+      await axios.post('https://event-platform-backend.onrender.com/api/events', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true
       });
