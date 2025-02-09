@@ -13,4 +13,9 @@ export default defineConfig({
   //   }
   // },
   plugins: [react()],
+  base: '/', // Update this if deploying under a subpath
+  server: {
+    host: '0.0.0.0',
+    port: 3000, // Change this to a port Render can detect (e.g., 10000)
+  }
 })
